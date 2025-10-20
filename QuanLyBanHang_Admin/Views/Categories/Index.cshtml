@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Loaihanghoa>
+@{
+    Layout = null;
+}
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    table {
+        border-spacing: 5px;
+    }
+</style>
+<h2>Thông tin các nhà sản xuất</h2>
+<p>
+    <a href="@Url.Action("them")">Thêm mới</a>
+</p>
+<table>
+    <tr>
+        <th>Mã loại</th>
+        <th>Tên loại</th>
+    </tr>
+    @{
+        //foreach (var item in ViewBag.nsx)
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Maloai</td>
+                <td>@item.Tenloai</td>
+                <td>
+                    <a href="@Url.Action("sua","Categories",new { id = item.Maloai })">Sửa</a> |
+                    <a href="@Url.Action("xoa","Categories",new { id = item.Maloai })">Xóa</a>
+                </td>
+            </tr>
+        }
+    }
+</table>

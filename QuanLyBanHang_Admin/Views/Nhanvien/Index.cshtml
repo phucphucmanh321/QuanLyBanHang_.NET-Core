@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Nhanvien>
+
+	<div style="padding: 20px">
+		<h1>Quản lý nhân viên</h1><br />
+	<a href="@Url.Action("them")" style="text-decoration:none ;padding: 7px; color:white; background-color:dodgerblue; border-radius:10%">Thêm</a><br />
+		<table>
+			<tr style="border-bottom: solid 1px black">
+				<th>Mã số nhân viên</th>
+				<th>Tên nhân viên</th>
+				<th>Ngày sinh</th>
+				<th>Phái</th>
+				<th>Địa chỉ</th>
+			</tr>
+		@{
+			foreach(var item in Model)
+			{
+				<tr style="border-bottom: solid 1px gray; height:auto">
+					<td>@item.Manv</td>
+					<td>@item.Tennv</td>
+					<td>@item.Ngaysinh</td>
+					<td>@item.Phai</td>
+					<td>@item.Diachi</td>
+					<td>
+						<a href=@Url.Action("xoa", new {id = item.Manv}) style="text-decoration:none ;margin:4px 0; display:inline-block; padding: 7px; color:white; background-color:dodgerblue; border-radius:10%;">Xóa</a>|
+						<a href=@Url.Action("sua", new {id = item.Manv}) style="text-decoration:none ;display:inline-block; padding: 7px; color:white; background-color:dodgerblue; border-radius:10%">Sửa</a>|
+						<a href=@Url.Action("resetpass", new {id = item.Manv}) style="text-decoration:none ;display:inline-block; padding: 7px; color:white; background-color:dodgerblue; border-radius:10%">Reset mật khẩu</a><br />
+
+					</td>
+				</tr>
+			}
+		}
+		</table>
+	</div>

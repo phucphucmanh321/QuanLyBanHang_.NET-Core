@@ -1,0 +1,34 @@
+﻿@using QuanLyBanHang_Admin.Models;
+@model Loaihanghoa;
+@{
+    Layout = null;
+    Loaihanghoa n = ViewBag.category;
+}
+<h2>Xóa thông tin loai hang hoa</h2>
+<h3>Bạn muốn xóa loai hang hoa nay ?</h3>
+<form action="xoa" method="post">
+    <div class="form-group">
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <th>Ma loai</th>
+                <th>Ten loai</th>
+            </tr>
+            <tr>
+                <td>
+                    <input readonly name="maloai" value="@n.Maloai" />
+                </td>
+                <td>
+                    <input readonly name="tenloai" value="@n.Tenloai" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Xóa" />
+    </div>
+    <br />
+    <div>
+        <a href="@Url.Action("index")">Quay lại</a>
+    </div>
+</form>
